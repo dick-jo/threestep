@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 600ms;
+    overflow: hidden;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+
+/*  */
+
+body {
+    background-color: #1b1b1b;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* OUTPUT */
+
+.output-tile {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: pointer;
+    /* transition: 1200ms; */
+}
+
+main[data-orientation="portrait"] .output-tile {
+    width: calc(100vw/3);
+    height: 100%
+}
+
+main[data-orientation="landscape"] .output-tile {
+    height: calc(100vh/3);
+    width: 100vw;
+}
+
+
+/* INPUT */
+
+#input {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#input .wrapper {
+    /* padding: .5rem; */
+    backdrop-filter: blur(56px);
+    -webkit-backdrop-filter: blur(56px);
+    background-color: rgba(0, 0, 0, 0.56);
+    border-radius: 4rem;
+}
+
+#input .wrapper>button {
+    margin: .5rem .12rem .5rem .5rem;
+}
+
+#input .wrapper>button:nth-of-type(2) {
+    margin: .5rem .5rem .5rem .25rem;
+}
+
+#input button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+}
+
+#input button:hover {
+    transform: scale(1.24);
+}
+
+#input button:active {
+    transform: scale(0.72);
+}
+
+#input .btn-secondary {
+    background-color: transparent;
+    color: white;
+}
+
+
+/* SOLO OVERLAY */
+
+#soloOverlay {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(56px);
+    -webkit-backdrop-filter: blur(56px);
+    background-color: rgba(0, 0, 0, 0.24);
+    transition: none;
+}
+
+#soloImage {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#soloOverlay[data-focus="true"] {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* STATES */
+
+[data-state="init"] {
+    opacity: 0;
+}
+
+[data-state="ready"] {
+    animation: fade-in 1200ms ease-in forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+    100% {
+        opacity: 100%;
+        filter: blur(0);
+        -webkit-filter: blur(0);
+    }
+}
+
+[data-state="pending"] {
+    animation: fade-out 300ms ease-out forwards;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 100%;
+        filter: blur(0);
+        -webkit-filter: blur(0);
+    }
+    100% {
+        opacity: 0%;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+}
+
+
+/*  */

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <!--  -->
+
+    <!--  -->
+</head>
+
+<body>
+
+    <section id="soloOverlay" data-focus="">
+        <div id="soloImage" data-focus=""></div>
+    </section>
+
+    <!-- FILE UPLOAD INPUT -->
+    <section id="input">
+        <div class="wrapper">
+            <input id="fileInput" type="file" hidden="hidden">
+            <button id="fileAdd">+</button>
+            <button id="changeOrientation" class="btn-secondary">|||</button>
+        </div>
+    </section>
+
+    <main data-orientation="portrait">
+        <!-- OUTPUT TILES -->
+        <div id="studyOriginal" data-state="init" data-solo="false" data-blur="" class="output-tile"></div>
+        <div id="studyPostColour" data-state="init" data-solo="false" data-blur="" class="output-tile"></div>
+        <div id="studyPostMono" data-state="init" data-solo="false" data-blur="" class="output-tile"></div>
+    </main>
+
+    <!-- SCRIPTS -->
+
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>
